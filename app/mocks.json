@@ -6,11 +6,13 @@
             "items": [
                 {
                     "itemName": "bat",
-                    "dateAdded": "June 2, 2016"
+                    "dateAdded": "June 2, 2016",
+                    "description": "Use it to hit the baseball or take out your rival family's muscle"
                 },
                 {
                     "itemName": "ball",
-                    "dateAdded": "June 3, 2016"
+                    "dateAdded": "June 3, 2016",
+                    "description": "Throw it. Hard."
                 }
             ]
         },
@@ -20,11 +22,13 @@
             "items": [
                 {
                     "itemName": "shoes",
-                    "dateAdded": "June 2, 2016"
+                    "dateAdded": "June 2, 2016",
+                    "description": "I wanna be like Mike!"
                 },
                 {
-                    "itemName": "ball",
-                    "dateAdded": "June 3, 2016"
+                    "itemName": "baseball",
+                    "dateAdded": "June 3, 2016",
+                    "description": "Don't throw it. Except sometimes. Get it in the hoop."
                 }
             ]
         }
@@ -33,22 +37,26 @@
         {
             "itemName": "bat",
             "categoryName": "baseball",
-            "dateAdded": "June 2, 2016"
+            "dateAdded": "June 2, 2016",
+            "description": "Use it to hit the baseball or take out your rival family's muscle"
         },
         {
-            "itemName": "ball",
+            "itemName": "baseball",
             "categoryName": "baseball",
-            "dateAdded": "June 3, 2016"
+            "dateAdded": "June 3, 2016",
+            "description": "Throw it. Hard."
         },
         {
             "itemName": "shoes",
             "categoryName": "basketball",
-            "dateAdded": "June 2, 2016"
+            "dateAdded": "June 2, 2016",
+            "description": "I wanna be like Mike!"
         },
         {
             "itemName": "ball",
             "categoryName": "basketball",
-            "dateAdded": "June 3, 2016"
+            "dateAdded": "June 3, 2016",
+            "description": "Don't throw it. Except sometimes. Get it in the hoop."
         }
     ]
 }

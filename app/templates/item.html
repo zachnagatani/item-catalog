@@ -1,1 +1,15 @@
-<div>{{vm.name}}</div>
+<main>
+    <div class="container">
+        <div class="row">
+            <section class="col-sm-12 item-description">
+                <header class="categories__header">
+                    <h2>{{vm.item.itemName}} <small>{{vm.item.categoryName}}</small></h2>
+                </header>
+
+                <p class="item-description__body">
+                    {{vm.item.description}}
+                </p>
+            </section> <!-- item-description -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</main>

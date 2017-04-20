@@ -3,6 +3,10 @@
 
     angular.module('catalog')
         .controller('categoriesCtrl', ['categories', function(categories) {
+            /**
+             * Grabs category and item data for access in view
+             * Using `bind(this)` sets `this` key word as the controller object
+             */
             categories.getCategories.call(this)
                 .then(function(response) {
                     return response.data;
