@@ -10,7 +10,7 @@
     $container = $app->getContainer();
 
     // Hook into index of Angular App
-    require_once('routes/index.php');
+    require_once('../server/routes/index.php');
 
     $app->run();
 ?>
