@@ -1,0 +1,54 @@
+{
+    "categories": [
+        {
+            "categoryID": 1,
+            "categoryName": "baseball",
+            "items": [
+                {
+                    "itemName": "bat",
+                    "dateAdded": "June 2, 2016"
+                },
+                {
+                    "itemName": "ball",
+                    "dateAdded": "June 3, 2016"
+                }
+            ]
+        },
+        {
+            "categoryID": 1,
+            "categoryName": "basketball",
+            "items": [
+                {
+                    "itemName": "shoes",
+                    "dateAdded": "June 2, 2016"
+                },
+                {
+                    "itemName": "ball",
+                    "dateAdded": "June 3, 2016"
+                }
+            ]
+        }
+    ],
+    "items": [
+        {
+            "itemName": "bat",
+            "categoryName": "baseball",
+            "dateAdded": "June 2, 2016"
+        },
+        {
+            "itemName": "ball",
+            "categoryName": "baseball",
+            "dateAdded": "June 3, 2016"
+        },
+        {
+            "itemName": "shoes",
+            "categoryName": "basketball",
+            "dateAdded": "June 2, 2016"
+        },
+        {
+            "itemName": "ball",
+            "categoryName": "basketball",
+            "dateAdded": "June 3, 2016"
+        }
+    ]
+}
