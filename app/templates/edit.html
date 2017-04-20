@@ -1,1 +1,23 @@
-<div>{{vm.name}}</div>
+<main>
+    <div class="container">
+        <div class="row">
+            <form class="col-sm-6 edit-form">
+                <header class="edit-form__header">
+                    <h2>Add New Item</h2>
+                </header>
+
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" name="itemName" id="itemName" placeholder="Snow gloves" value="{{vm.item.itemName}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{vm.item.description}}</textarea>
+                </div>
+
+                <input type="submit" value="Add Item" class="btn btn-default">
+            </form> <!-- edit-form -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</main>
