@@ -4,7 +4,7 @@
 
     $app->patch('/api/items/update/{id}', function(Request $request, Response $response) {
         // Insantiate new item and call its create method
-        // to attempt to save to database
+        // to attempt to update in database
         $item = new Item(
             $request->getParam('itemName'),
             $request->getParam('description')

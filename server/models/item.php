@@ -81,7 +81,7 @@
                 // Bind
                 $stmt->bindParam("itemName", $this->itemName, PDO::PARAM_STR);
                 $stmt->bindParam("description", $this->description, PDO::PARAM_STR);
-                $stmt->bindParam("id", $id, PDO::PARAM_STR);
+                $stmt->bindParam("id", $id, PDO::PARAM_INT);
 
                 // Execute
                 $stmt->execute();
@@ -107,5 +107,43 @@
                 );
             }
         } // Update method
+
+        public static function delete($id) {
+            try {
+                // Create database connection
+                $db = Db::connect();
+
+                // Prepare
+                $sql = "DELETE FROM items
+                        WHERE id = :id";
+                $stmt = $db->prepare($sql);
+
+                // Bind
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+                // Execute
+                $stmt->execute();
+
+                // Return success data
+                return array(
+                    "status" => 200,
+                    "data" => array(
+                        "Success" => True,
+                        "Error" => False,
+                        "Message" => "Item deleted"
+                    )
+                );
+            } catch (PDOException $e) {
+                // Return error data
+                return array(
+                    "status" => 400,
+                    "data" => array(
+                        "Success" => False,
+                        "Error" => True,
+                        "Message" => $e->getMessage()
+                    )
+                );
+            }
+        }
     }
 ?>
