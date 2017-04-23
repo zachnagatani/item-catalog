@@ -14,6 +14,18 @@
         // Returns a success or failure message
         public function create() {
             try {
+                // Check for empty strings in itemName or description
+                if ($this->itemName === '' || $this->description === '' || $this->category === '') {
+                    return array(
+                        "status" => 400,
+                        "data" => array(
+                            "Success" => False,
+                            "Error" => True,
+                            "Message" => "Item fields cannot be empty."
+                        )
+                    );
+                }
+
                 // Connect to db
                 $db = Db::connect();
 
