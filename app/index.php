@@ -34,6 +34,7 @@
 
     // API Hooks
     require_once('../server/api/items/create.php');
+    require_once('../server/api/items/update.php');
 
     // Hook into index of Angular App
     // Must be required below all other routes/api endpoints

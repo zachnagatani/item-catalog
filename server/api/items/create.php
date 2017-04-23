@@ -12,7 +12,7 @@
         );
         $data = $item->create();
 
-        // Alert the user of success or failure
+        // Alert the user of success or failure with proper status code
         $response = $response->withStatus($data['status']);
         return $response->withJson($data['data']);
     });
