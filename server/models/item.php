@@ -64,6 +64,7 @@
             }
         } // Create method
 
+        // Retrieves and returns all items from db or an error message
         public static function getAll() {
             try {
                 // Connect to database
@@ -78,6 +79,7 @@
                 // Execute
                 $stmt->execute();
 
+                // Store items as objects
                 $items = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                  // Return success data
@@ -88,6 +90,52 @@
                         "Error" => False,
                         "Message" => "Items retrieved successfully!",
                         "Items" => $items
+                    )
+                );
+            } catch(PDOException $e) {
+                // Return error data
+                return array(
+                    "status" => 400,
+                    "data" => array(
+                        "Success" => False,
+                        "Error" => True,
+                        "Message" => $e->getMessage()
+                    )
+                );
+            }
+        } // getAll method
+
+
+        // Returns single item from databsae or an error message
+        // Takes in an item id
+        public static function getOne($id) {
+            try {
+                // Connect to database
+                $db = Db::connect();
+
+                // Prepare
+                $sql = "SELECT *
+                        FROM items
+                        WHERE id = :id";
+                $stmt = $db->prepare($sql);
+
+                // Bind
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+                // Execute
+                $stmt->execute();
+
+                // Store item as object
+                $item = $stmt->fetch(PDO::FETCH_OBJ);
+
+                 // Return success data
+                return array(
+                    "status" => 200,
+                    "data" => array(
+                        "Success" => True,
+                        "Error" => False,
+                        "Message" => "Item with id: $id retrieved successfully!",
+                        "Item" => $item
                     )
                 );
             } catch(PDOException $e) {
