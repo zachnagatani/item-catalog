@@ -4,9 +4,9 @@
         private $description;
         private $categoryName;
 
-        public function __construct($itemName, $description, $categoryID = null) {
+        public function __construct($itemName, $description, $categoryName = null) {
             $this->itemName = $itemName;
-            $this->categoryID = $categoryID;
+            $this->categoryName = $categoryName;
             $this->description = $description;
         }
 
@@ -15,7 +15,7 @@
         public function create() {
             try {
                 // Check for empty strings in itemName or description
-                if ($this->itemName === '' || $this->description === '' || $this->category === '') {
+                if ($this->itemName === '' || $this->description === '' || $this->categoryName === '') {
                     return array(
                         "status" => 400,
                         "data" => array(
@@ -30,14 +30,14 @@
                 $db = Db::connect();
 
                 // Prepare
-                $sql = "INSERT INTO items (itemName, description, categoryID)
-                        VALUES (:itemName, :description, :categoryID)";
+                $sql = "INSERT INTO items (itemName, description, categoryName)
+                        VALUES (:itemName, :description, :categoryName)";
                 $stmt = $db->prepare($sql);
 
                 // Bind
                 $stmt->bindParam("itemName", $this->itemName, PDO::PARAM_STR);
                 $stmt->bindParam("description", $this->description, PDO::PARAM_STR);
-                $stmt->bindParam("categoryID", $this->categoryID, PDO::PARAM_STR);
+                $stmt->bindParam("categoryName", $this->categoryName, PDO::PARAM_STR);
 
                 // Execute
                 $stmt->execute();

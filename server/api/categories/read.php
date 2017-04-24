@@ -10,9 +10,9 @@
         return $response->withJson($data['data']);
     });
 
-    $app->get('/api/categories/{categoryID}', function(Request $request, Response $response) {
+    $app->get('/api/categories/{categoryName}', function(Request $request, Response $response) {
         // Create new category instance
-        $category = new Category($request->getAttribute('categoryID'));
+        $category = new Category($request->getAttribute('categoryName'));
 
         // Get all items that belong to category
         $data = $category->getItems();

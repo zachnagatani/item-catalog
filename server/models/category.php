@@ -1,9 +1,9 @@
 <?php
     class Category {
-        private $categoryID;
+        private $categoryName;
 
-        public function __construct($categoryID) {
-            $this->categoryID = $categoryID;
+        public function __construct($categoryName) {
+            $this->categoryName = $categoryName;
         }
 
         // Gets and returns all categories in the db
@@ -56,12 +56,12 @@
                 // Prepare
                 $sql = "SELECT *
                         FROM items
-                        WHERE categoryID = :categoryID
+                        WHERE categoryName = :categoryName
                         ORDER BY timeAdded DESC";
                 $stmt = $db->prepare($sql);
 
                 // Bind
-                $stmt->bindParam(':categoryID', $this->categoryID, PDO::PARAM_INT);
+                $stmt->bindParam(':categoryName', $this->categoryName, PDO::PARAM_INT);
 
                 // Execute
                 $stmt->execute();
@@ -75,7 +75,7 @@
                     "data" => array(
                         "Success" => True,
                         "Error" => False,
-                        "Message" => "Items from category with id $this->categoryID retrieved successfully!",
+                        "Message" => "Items from category with id $this->categoryName retrieved successfully!",
                         "Items" => $items
                     )
                 );

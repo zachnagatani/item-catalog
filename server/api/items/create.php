@@ -8,7 +8,7 @@
         $item = new Item(
             $request->getParam('itemName'),
             $request->getParam('description'),
-            $request->getParam('categoryID')
+            $request->getParam('categoryName')
         );
         $data = $item->create();
 
