@@ -2,12 +2,13 @@
     use \Psr\Http\Message\ServerRequestInterface as Request;
     use \Psr\Http\Message\ResponseInterface as Response;
 
-    $app->get('/api/categories', function(Request $request, Response $response) {
-        $conn = Db::connect();
+    $app->get('/api/items', function(Request $request, Response $response) {
+        // Connect to database
+        $db = Db::connect();
 
-        // Prepare
+        $data = Item::getAll();
 
-        // Bind
-        // Execute
+        $response = $response->withStatus($data['status']);
+        return $response->withJson($data['data']);
     });
 ?>

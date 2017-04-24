@@ -64,6 +64,45 @@
             }
         } // Create method
 
+        public static function getAll() {
+            try {
+                // Connect to database
+                $db = Db::connect();
+
+                // Prepare
+                $sql = "SELECT *
+                        FROM items";
+                $stmt = $db->prepare($sql);
+
+                // Nothing to bind...
+                // Execute
+                $stmt->execute();
+
+                $items = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+                 // Return success data
+                return array(
+                    "status" => 200,
+                    "data" => array(
+                        "Success" => True,
+                        "Error" => False,
+                        "Message" => "Items retrieved successfully!",
+                        "Items" => $items
+                    )
+                );
+            } catch(PDOException $e) {
+                // Return error data
+                return array(
+                    "status" => 400,
+                    "data" => array(
+                        "Success" => False,
+                        "Error" => True,
+                        "Message" => $e->getMessage()
+                    )
+                );
+            }
+        }
+
         // Updates an item in the database
         // Takes in an item id and returns success or error messages
         public function Update($id) {

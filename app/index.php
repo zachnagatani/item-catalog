@@ -34,6 +34,7 @@
 
     // API Hooks
     require_once('../server/api/items/create.php');
+    require_once('../server/api/items/read.php');
     require_once('../server/api/items/update.php');
     require_once('../server/api/items/delete.php');
 
