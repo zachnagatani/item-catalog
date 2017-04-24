@@ -28,15 +28,19 @@
 
     // Models
     require_once('../server/models/item.php');
+    require_once('../server/models/category.php');
 
     // DB connection
     require_once('../server/db.php');
 
-    // API Hooks
+    // Item API Hooks
     require_once('../server/api/items/create.php');
     require_once('../server/api/items/read.php');
     require_once('../server/api/items/update.php');
     require_once('../server/api/items/delete.php');
+
+    // Category API Hooks
+    require_once('../server/api/categories/read.php');
 
     // Hook into index of Angular App
     // Must be required below all other routes/api endpoints

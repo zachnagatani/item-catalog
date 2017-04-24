@@ -92,7 +92,7 @@
                         "Items" => $items
                     )
                 );
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 // Return error data
                 return array(
                     "status" => 400,
@@ -138,7 +138,7 @@
                         "Item" => $item
                     )
                 );
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 // Return error data
                 return array(
                     "status" => 400,
