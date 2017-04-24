@@ -72,7 +72,8 @@
 
                 // Prepare
                 $sql = "SELECT *
-                        FROM items";
+                        FROM items
+                        ORDER BY timeAdded DESC";
                 $stmt = $db->prepare($sql);
 
                 // Nothing to bind...

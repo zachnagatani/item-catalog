@@ -9,4 +9,15 @@
         $response = $response->withStatus($data['status']);
         return $response->withJson($data['data']);
     });
+
+    $app->get('/api/categories/{categoryID}', function(Request $request, Response $response) {
+        // Create new category instance
+        $category = new Category($request->getAttribute('categoryID'));
+
+        // Get all items that belong to category
+        $data = $category->getItems();
+
+        $response = $response->withStatus($data['status']);
+        return $response->withJson($data['data']);
+    });
 ?>
