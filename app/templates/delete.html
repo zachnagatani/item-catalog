@@ -10,6 +10,8 @@
 
                 <button ng-click="vm.deleteItem(vm.item.id)" class="btn btn-danger">Delete</button>
                 <button class="btn btn-default">Cancel</button>
+
+                <flashy ng-show="vm.message" info="vm.message"></flashy>
             </section>
         </div> <!-- row -->
     </div> <!-- container -->

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('deleteItemCtrl', ['$stateParams', '$state', 'categories', 'items', function($stateParams, $state, categories, items) {
+        .controller('deleteItemCtrl', ['$stateParams', '$state', '$timeout', 'categories', 'items', function($stateParams, $state, $timeout, categories, items) {
             // Find proper item and populate model so view can access the itemID
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
@@ -22,8 +22,14 @@
             this.deleteItem = function(itemID) {
                 items.delete(itemID)
                     .then(function(response) {
-                        console.log(response);
-                    });
+                        this.message = {
+                            text: 'Item deleted!'
+                        };
+
+                        $timeout(function() {
+                            $state.go('category', {category: $stateParams.category});
+                        }, 2000);
+                    }.bind(this));
             };
         }]);
 })();

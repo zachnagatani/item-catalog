@@ -31,6 +31,8 @@
                        value="Update Item"
                        ng-click="vm.updateItem($event, vm.item.itemName, vm.item.description, vm.item.id)"
                        class="btn btn-default">
+
+                <flashy ng-show="vm.message" info="vm.message"></flashy>
             </form> <!-- edit-form -->
         </div> <!-- row -->
     </div> <!-- container -->

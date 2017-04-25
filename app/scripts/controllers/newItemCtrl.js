@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('newItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
+        .controller('newItemCtrl', ['$stateParams', '$state', '$timeout', 'categories', 'items', function($stateParams, $state, $timeout, categories, items) {
             // Set categoryName for model to pass into save function in view
             this.categoryName = $stateParams.category;
 
@@ -17,6 +17,10 @@
                         this.message = {
                             text: 'Item added!'
                         };
+
+                        $timeout(function() {
+                            $state.go('item', {category: $stateParams.category, item: itemName});
+                        }, 2000);
                     }.bind(this));
             };
         }]);

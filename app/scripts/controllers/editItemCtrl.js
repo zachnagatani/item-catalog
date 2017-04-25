@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('editItemCtrl', ['$stateParams', '$state', 'categories', 'items', function($stateParams, $state, categories, items) {
+        .controller('editItemCtrl', ['$stateParams', '$state', '$timeout', 'categories', 'items', function($stateParams, $state, $timeout, categories, items) {
             // Populate model so input fields have proper data according to category and item in URL
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
@@ -24,8 +24,14 @@
 
                 items.update(itemName, description, itemID)
                     .then(function(response) {
-                        console.log(response);
-                    });
+                        this.message = {
+                            text: 'Item updated!'
+                        };
+
+                        $timeout(function() {
+                            $state.go('item', {category: $stateParams.category, item: itemName});
+                        }, 2000);
+                    }.bind(this));
             };
         }]);
 })();
