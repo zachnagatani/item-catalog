@@ -11,7 +11,7 @@
                 .then(function(data) {
                     this.items = data.Items;
                     this.item = this.items.filter(function(item) {
-                        return item.itemName === $stateParams.item;
+                        return item.itemName.toLowerCase() === $stateParams.item.toLowerCase();
                     })[0];
                     console.log(this.item);
                 }.bind(this));
