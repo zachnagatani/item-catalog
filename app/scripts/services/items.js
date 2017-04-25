@@ -10,5 +10,12 @@
                     categoryName: categoryName
                 });
             };
+
+            this.update = function(itemName, description, itemID) {
+                return $http.patch('/api/items/update/' + itemID, {
+                    itemName: itemName,
+                    description: description
+                });
+            };
         }]);
 })();
