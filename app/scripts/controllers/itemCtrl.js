@@ -3,14 +3,15 @@
 
     angular.module('catalog')
         .controller('itemCtrl', ['$stateParams', 'categories', function($stateParams, categories) {
-            categories.getCategories.call(this)
+            // Populate model with correct item for view
+            categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
                     return response.data;
                 })
                 .then(function(data) {
-                    this.item = data.items.filter(function(item) {
-                        return item.itemName === $stateParams.item
-                            && item.categoryName === $stateParams.category;
+                    this.items = data.Items;
+                    this.item = this.items.filter(function(item) {
+                        return item.itemName.toLowerCase() === $stateParams.item;
                     })[0];
                 }.bind(this));
         }]);

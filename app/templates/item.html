@@ -10,8 +10,8 @@
                     {{vm.item.description}}
                 </p>
 
-                <a href="#" class="btn btn-default">Edit</a>
-                <a href="#" class="btn btn-default">Delete</a>
+                <a ui-sref="editItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default">Edit</a>
+                <a ui-sref="deleteItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default">Delete</a>
             </section> <!-- item-description -->
         </div> <!-- row -->
     </div> <!-- container -->
