@@ -2,19 +2,9 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('newItemCtrl', ['categories', 'items', function(categories, items) {
-            /**
-             * Gets all categories for the select input
-             */
-            categories.getAll.call(this)
-                .then(function(response) {
-                    return response.data;
-                })
-                .then(function(data) {
-                    this.categories = data.Categories;
-                    console.log(this.categories);
-                }.bind(this));
-
+        .controller('newItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
+            // Set categoryName for model to pass into save function in view
+            this.categoryName = $stateParams.category;
             /**
              * Uses the items service to post to the database
              */
