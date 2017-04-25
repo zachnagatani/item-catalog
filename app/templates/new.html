@@ -17,6 +17,8 @@
                 </div>
 
                 <input type="submit" value="Add Item" ng-click="vm.saveItem($event, itemName, description, vm.categoryName)" class="btn btn-default">
+
+                <flashy ng-show="vm.message" info="vm.message"></flashy>
             </form> <!-- add-form -->
         </div> <!-- row -->
     </div> <!-- container -->
