@@ -3,8 +3,8 @@
 
     angular.module('catalog')
         .service('categories', ['$http', function($http) {
-            this.getCategories = function() {
-                return $http.get('../../mocks.json');
+            this.getAll = function() {
+                return $http.get('/api/categories');
             }
         }]);
 })();

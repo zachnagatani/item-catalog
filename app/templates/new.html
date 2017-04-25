@@ -1,29 +1,29 @@
 <main>
     <div class="container">
         <div class="row">
-            <form class="col-sm-6 add-form">
+            <form class="col-sm-6 add-form" method="POST" action="/api/items/create">
                 <header class="add-form__header">
                     <h1>Add New Item</h1>
                 </header>
 
                 <div class="form-group">
-                    <label for="category">Category</label>
-                    <select name="category" id="category">
+                    <label for="categoryName">Category</label>
+                    <select name="categoryName" id="categoryName" ng-model="categoryName">
                         <option ng-repeat="category in vm.categories" value="{{category.categoryName}}">{{category.categoryName}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="itemName">Item Name</label>
-                    <input type="text" name="itemName" id="itemName" placeholder="Snow gloves" class="form-control">
+                    <input type="text" name="itemName" id="itemName" placeholder="Snow gloves" ng-model="itemName" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" ng-model="description" class="form-control"></textarea>
                 </div>
 
-                <input type="submit" value="Add Item" class="btn btn-default">
+                <input type="submit" value="Add Item" ng-click="vm.saveItem($event, itemName, description, categoryName)" class="btn btn-default">
             </form> <!-- add-form -->
         </div> <!-- row -->
     </div> <!-- container -->
