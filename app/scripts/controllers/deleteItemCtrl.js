@@ -3,6 +3,7 @@
 
     angular.module('catalog')
         .controller('deleteItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
+            // Find proper item and populate model so view can access the itemID
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
                     return response.data;

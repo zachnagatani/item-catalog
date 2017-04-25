@@ -3,7 +3,7 @@
 
     angular.module('catalog')
         .controller('editItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
-            //Populates input fields with proper data according to category and item in URL
+            // Populate model so input fields have proper data according to category and item in URL
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
                     return response.data;

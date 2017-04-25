@@ -11,6 +11,10 @@
                 });
             };
 
+            this.getAll = function() {
+                return $http.get('/api/items');
+            };
+
             this.update = function(itemName, description, itemID) {
                 return $http.patch('/api/items/update/' + itemID, {
                     itemName: itemName,
