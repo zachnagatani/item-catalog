@@ -13,7 +13,6 @@
                     this.item = this.items.filter(function(item) {
                         return item.itemName === $stateParams.item;
                     })[0];
-                    console.log(this.item);
                 }.bind(this));
 
             this.updateItem = function(event, itemName, description, itemID) {
