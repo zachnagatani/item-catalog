@@ -11,7 +11,8 @@
                 </p>
 
                 <a ui-sref="editItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-primary">Edit</a>
-                <a ui-sref="deleteItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default">Delete</a>
+                <a ui-sref="deleteItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-danger">Delete</a>
+                <a ui-sref="category({category: vm.item.categoryName})" class="btn btn-default">Cancel</a>
             </section> <!-- item-description -->
         </div> <!-- row -->
     </div> <!-- container -->
