@@ -17,5 +17,9 @@
                     description: description
                 });
             };
+
+            this.delete = function(itemID) {
+                return $http.delete('/api/items/delete/' + itemID);
+            };
         }]);
 })();
