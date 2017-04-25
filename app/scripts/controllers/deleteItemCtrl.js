@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('deleteItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
+        .controller('deleteItemCtrl', ['$stateParams', '$state', 'categories', 'items', function($stateParams, $state, categories, items) {
             // Find proper item and populate model so view can access the itemID
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
@@ -13,7 +13,10 @@
                     this.item = this.items.filter(function(item) {
                         return item.itemName.toLowerCase() === $stateParams.item.toLowerCase();
                     })[0];
-                    console.log(this.item);
+
+                    if (!this.item) {
+                        $state.go('category', {category: $stateParams.category});
+                    }
                 }.bind(this));
 
             this.deleteItem = function(itemID) {

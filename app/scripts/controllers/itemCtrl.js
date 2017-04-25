@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('itemCtrl', ['$stateParams', 'categories', function($stateParams, categories) {
+        .controller('itemCtrl', ['$stateParams', '$state', 'categories', function($stateParams, $state, categories) {
             // Populate model with correct item for view
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
@@ -13,7 +13,10 @@
                     this.item = this.items.filter(function(item) {
                         return item.itemName.toLowerCase() === $stateParams.item.toLowerCase();
                     })[0];
-                    console.log(this.items);
+
+                    if (!this.item) {
+                        $state.go('category', {category: $stateParams.category});
+                    }
                 }.bind(this));
         }]);
 })();

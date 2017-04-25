@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('catalog')
-        .controller('editItemCtrl', ['$stateParams', 'categories', 'items', function($stateParams, categories, items) {
+        .controller('editItemCtrl', ['$stateParams', '$state', 'categories', 'items', function($stateParams, $state, categories, items) {
             // Populate model so input fields have proper data according to category and item in URL
             categories.getCategoryItems.call(this, $stateParams.category)
                 .then(function(response) {
@@ -13,6 +13,10 @@
                     this.item = this.items.filter(function(item) {
                         return item.itemName.toLowerCase() === $stateParams.item.toLowerCase();
                     })[0];
+
+                    if (!this.item) {
+                        $state.go('category', {category: $stateParams.category});
+                    }
                 }.bind(this));
 
             this.updateItem = function(event, itemName, description, itemID) {
