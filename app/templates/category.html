@@ -8,7 +8,7 @@
 
                 <ul class="category__list list-unstyled">
                     <li ng-repeat="category in vm.categories">
-                        <a href="#">{{category.categoryName}}</a>
+                        <a ui-sref="category({category: category.categoryName})">{{category.categoryName}}</a>
                     </li>
                 </ul>
             </section> <!-- categories -->
@@ -20,15 +20,16 @@
 
                 <ul class="items__list list-unstyled">
                     <li ng-repeat="item in vm.items">
-                        <a href="#">
+                        <a ui-sref="item({category: item.categoryName, item: item.itemName})">
                             {{item.itemName}}
                             <span>{{item.categoryName}}</span>
                         </a>
                     </li>
                 </ul>
+
                 <div class="row">
                     <div class="col-sm-4">
-                        <a href="#" class="btn btn-default">Add Item</a>
+                        <a ui-sref="newItem({category: vm.stateParams.category})" class="btn btn-default">Add Item</a>
                     </div>
                 </div>
             </section> <!-- items -->
