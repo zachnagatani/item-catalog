@@ -44,6 +44,6 @@
     }
   },
   "scripts": {
-    "scss": "node-sass app/styles/main.scss app/styles/main.css"
+    "scss": "node-sass app/styles/main.scss app/styles/main.css -w app/styles/main.scss"
   }
 }

@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <section class="col-sm-12 item-description">
+            <section class="col-sm-12 text-center item-description">
                 <header class="item__header">
                     <h1>{{vm.item.itemName}} <small>{{vm.item.categoryName}}</small></h1>
                 </header>
@@ -10,7 +10,7 @@
                     {{vm.item.description}}
                 </p>
 
-                <a ui-sref="editItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default">Edit</a>
+                <a ui-sref="editItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-primary">Edit</a>
                 <a ui-sref="deleteItem({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default">Delete</a>
             </section> <!-- item-description -->
         </div> <!-- row -->

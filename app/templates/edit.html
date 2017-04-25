@@ -1,7 +1,7 @@
 <main>
-    <div class="container">
+    <div class="container container--form">
         <div class="row">
-            <form class="col-sm-6 edit-form">
+            <form class="col-sm-6 col-sm-offset-3 edit-form">
                 <header class="edit-form__header">
                     <h1>Edit Item</h1>
                 </header>
@@ -30,7 +30,8 @@
                 <input type="submit"
                        value="Update Item"
                        ng-click="vm.updateItem($event, vm.item.itemName, vm.item.description, vm.item.id)"
-                       class="btn btn-default">
+                       class="btn btn-success">
+                <a ui-sref="item({category: vm.item.categoryName, item: vm.item.itemName})" class="btn btn-default pull-right">Cancel</a>
 
                 <flashy ng-show="vm.message" info="vm.message"></flashy>
             </form> <!-- edit-form -->

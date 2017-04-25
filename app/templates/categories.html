@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <section class="col-sm-6 categories">
+            <section class="col-sm-4 col-sm-offset-2 categories">
                 <header class="categories__header">
                     <h2>Categories</h2>
                 </header>
@@ -12,7 +12,7 @@
                 </ul>
             </section> <!-- categories -->
 
-            <section class="col-sm-6 items">
+            <section class="col-sm-4 col-sm-offset-2 items">
                 <header class="items__header">
                     <h2>Items</h2>
                 </header>
@@ -21,7 +21,7 @@
                     <li ng-repeat="item in vm.items">
                         <a ui-sref="item({category: item.categoryName, item: item.itemName})">
                             {{item.itemName}}
-                            <span>{{item.categoryName}}</span>
+                            <small>{{item.categoryName}}</small>
                         </a>
                     </li>
                 </ul>

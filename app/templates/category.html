@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <section class="col-sm-6 category">
+            <section class="col-sm-4 col-sm-offset-2 category">
                 <header class="category__header">
                     <h2>Categories</h2>
                 </header>
@@ -13,7 +13,7 @@
                 </ul>
             </section> <!-- categories -->
 
-            <section class="col-sm-6 items">
+            <section class="col-sm-4 col-sm-offset-2 items">
                 <header class="items__header">
                     <h2>{{vm.category.categoryName}} Items</h2>
                 </header>
@@ -22,14 +22,14 @@
                     <li ng-repeat="item in vm.items">
                         <a ui-sref="item({category: item.categoryName, item: item.itemName})">
                             {{item.itemName}}
-                            <span>{{item.categoryName}}</span>
+                            <small>{{item.categoryName}}</small>
                         </a>
                     </li>
                 </ul>
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <a ui-sref="newItem({category: vm.stateParams.category})" class="btn btn-default">Add Item</a>
+                        <a ui-sref="newItem({category: vm.stateParams.category})" class="btn btn-primary">Add Item</a>
                     </div>
                 </div>
             </section> <!-- items -->

@@ -3,8 +3,8 @@
 
     angular.module('catalog')
         .controller('newItemCtrl', ['$stateParams', '$state', '$timeout', 'categories', 'items', function($stateParams, $state, $timeout, categories, items) {
-            // Set categoryName for model to pass into save function in view
-            this.categoryName = $stateParams.category;
+            // Set stateParams for access on model
+            this.stateParams = $stateParams;
 
             /**
              * Uses the items service to post to the database

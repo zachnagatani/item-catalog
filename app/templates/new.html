@@ -1,9 +1,9 @@
 <main>
-    <div class="container">
+    <div class="container container--form">
         <div class="row">
-            <form class="col-sm-6 add-form" method="POST" action="/api/items/create">
+            <form class="col-sm-6 col-sm-offset-3 add-form" method="POST" action="/api/items/create">
                 <header class="add-form__header">
-                    <h1>Add New Item in Category: {{vm.categoryName}}</h1>
+                    <h1>Add New Item in Category: {{vm.stateParams.categoryName}}</h1>
                 </header>
 
                 <div class="form-group">
@@ -16,7 +16,8 @@
                     <textarea name="description" id="description" cols="30" rows="10" ng-model="description" class="form-control"></textarea>
                 </div>
 
-                <input type="submit" value="Add Item" ng-click="vm.saveItem($event, itemName, description, vm.categoryName)" class="btn btn-default">
+                <input type="submit" value="Add Item" ng-click="vm.saveItem($event, itemName, description, vm.categoryName)" class="btn btn-success">
+                <a ui-sref="category({category: vm.stateParams.category})" class="btn btn-default pull-right">Cancel</a>
 
                 <flashy ng-show="vm.message" info="vm.message"></flashy>
             </form> <!-- add-form -->
