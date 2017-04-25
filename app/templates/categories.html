@@ -5,9 +5,10 @@
                 <header class="categories__header">
                     <h2>Categories</h2>
                 </header>
-
                 <ul class="categories__list list-unstyled">
-                    <li ng-repeat="category in vm.categories">{{category.categoryName}}</li>
+                    <li ng-repeat="category in vm.categories">
+                        <a ui-sref="category({category: category.categoryName})">{{category.categoryName}}</a>
+                    </li>
                 </ul>
             </section> <!-- categories -->
 
@@ -17,9 +18,16 @@
                 </header>
 
                 <ul class="items__list list-unstyled">
-                    <li ng-repeat="item in vm.items">{{item.itemName}} <span>{{item.categoryName}}</span></li>
+                    <li ng-repeat="item in vm.items">
+                        <a ui-sref="item({category: item.categoryName, item: item.itemName})">
+                            {{item.itemName}}
+                            <span>{{item.categoryName}}</span>
+                        </a>
+                    </li>
                 </ul>
             </section> <!-- items -->
         </div> <!-- row -->
     </div> <!-- container -->
+
+    <ui-view></ui-view>
 </main>
